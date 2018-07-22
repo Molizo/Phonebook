@@ -37,5 +37,19 @@ namespace Phonebook
                 dataGridView.Rows.Add(contactInfo);
             }
         }
+
+        private void toolStripButtonRemove_Click(object sender, EventArgs e)
+        {
+            string contactFileData = String.Empty; //These are all the new contacts
+            int index = dataGridView.SelectedRows[0].Index; //Gets the index of the deleted row
+            string[] contacts = File.ReadAllLines("contacts.dat"); //These are all the old contacts
+            for (int i = 0; i < contacts.Count(); i++)
+            {
+                if (index != i)
+                    contactFileData += contacts[i] + System.Environment.NewLine;
+            }
+            File.WriteAllText("contacts.dat", contactFileData); //Saves the contact file without the removed contact
+            dataGridView.Rows.Remove(dataGridView.SelectedRows[0]);
+        }
     }
 }
