@@ -17,6 +17,10 @@ namespace Phonebook
             InitializeComponent();
         }
 
-
+        private void toolStripButtonAdd_Click(object sender, EventArgs e)
+        {
+            AddContactForm addContactForm = new AddContactForm();
+            addContactForm.ShowDialog();
+        }
     }
 }
