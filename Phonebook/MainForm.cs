@@ -16,6 +16,8 @@ namespace Phonebook
         public MainForm()
         {
             InitializeComponent();
+            if (File.Exists("contacts.dat"))
+                loadContacts();
         }
 
         private void toolStripButtonAdd_Click(object sender, EventArgs e)
