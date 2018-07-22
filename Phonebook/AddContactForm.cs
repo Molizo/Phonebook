@@ -23,47 +23,14 @@ namespace Phonebook
             string contactFileContents = String.Empty;
             if (File.Exists("contacts.dat"))
                 contactFileContents = File.ReadAllText("contacts.dat") + System.Environment.NewLine;
-
-            if (textBoxFirstName.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxFirstName.Text + "|";
-
-            if (textBoxMiddleName.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxMiddleName.Text + "|";
-
-            if (textBoxLastName.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxLastName.Text + "|";
-
-            if (textBoxMobilePhone.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxMobilePhone.Text + "|";
-
-            if (textBoxHomePhone.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxHomePhone.Text + "|";
-
-            if (textBoxFaxPhone.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxFaxPhone.Text + "|";
-
-            if (textBoxWorkPhone.Text == String.Empty)
-                contactFileContents += "<EMPTY>|";
-            else
-                contactFileContents += textBoxWorkPhone.Text + "|";
-
-            if (textBoxEmail.Text == String.Empty)
-                contactFileContents += "<EMPTY>";
-            else
-                contactFileContents += textBoxEmail.Text;
-
+            contactFileContents += textBoxFirstName.Text + "|" +
+                                   textBoxMiddleName.Text + "|" +
+                                   textBoxLastName.Text + "|" +
+                                   textBoxMobilePhone.Text + "|" +
+                                   textBoxHomePhone.Text + "|" +
+                                   textBoxFaxPhone.Text + "|" +
+                                   textBoxWorkPhone.Text + "|" +
+                                   textBoxEmail.Text;
             File.WriteAllText("contacts.dat", contactFileContents);
             this.Close();
         }

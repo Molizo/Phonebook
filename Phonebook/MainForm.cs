@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Phonebook
 {
@@ -21,6 +22,18 @@ namespace Phonebook
         {
             AddContactForm addContactForm = new AddContactForm();
             addContactForm.ShowDialog();
+            loadContacts();
+        }
+
+        private void loadContacts()
+        {
+            string[] contacts = File.ReadAllLines("contacts.dat");
+            dataGridView.Rows.Clear();
+            foreach (string contact in contacts)
+            {
+                string[] contactInfo = contact.Split('|');
+                dataGridView.Rows.Add(contactInfo);
+            }
         }
     }
 }
